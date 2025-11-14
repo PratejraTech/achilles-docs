@@ -1,0 +1,58 @@
+# Achilles Runs Docs
+
+Dark-first documentation for the Achilles observability + CI intelligence stack. The site is powered by Docusaurus 3 with a custom glassmorphism theme, a README-driven homepage (`src/pages/index.mdx`), and an aggressive plugin stack (PWA, ideal image, redirects, analytics, GTM, sitemap, etc.).
+
+## Prerequisites
+
+- Node.js ≥ 20 (see `package.json#engines`)
+- npm 10+ (repo uses `package-lock.json`)
+- Optional: Algolia/Google IDs for analytics + search integrations
+
+## Install
+
+```bash
+npm install
+```
+
+All required plugins (PWA, ideal image, analytics, redirects, sitemap, live codeblock, mermaid) are already listed as dependencies.
+
+## Develop
+
+```bash
+npm run start
+```
+
+- Hot reload mirrors dark-mode defaults and custom CSS.
+- Pass `DOCS_*` env vars (below) when you want to exercise analytics locally.
+
+## Build & Serve
+
+```bash
+npm run build
+npm run serve
+```
+
+The production bundle emits optimized PWA assets (`manifest.json`, service worker) plus responsive images generated via `@docusaurus/plugin-ideal-image`.
+
+## Recommended Environment Variables
+
+| Variable | Purpose |
+| --- | --- |
+| `DOCS_CANONICAL_URL` | Override canonical host (defaults to `https://docs.achilles.run`) |
+| `DOCS_GOOGLE_ANALYTICS_ID` | `G-*` ID for `@docusaurus/plugin-google-analytics` |
+| `DOCS_GOOGLE_GTAG_ID` | `G-*` ID for `@docusaurus/plugin-google-gtag` |
+| `DOCS_GOOGLE_TAG_MANAGER_ID` | `GTM-*` container for Tag Manager |
+
+## Theming + Content
+
+- `src/css/custom.css` defines the dark-first palette, glass panels, and hero styles shared across docs/blog.
+- `src/pages/index.mdx` is sourced from the root `docs/README.md` and showcases mission, signal flow, and CTA cards.
+- Use standard MDX components (`Tabs`, `Admonition`, `HomepageFeatures`) to stay consistent with the design system.
+
+## Deployment
+
+1. `npm run build`
+2. Sync the `build/` directory to your hosting target (Cloudflare Pages, Netlify, GitHub Pages, etc.).
+3. Ensure any CDN honors the generated `sitemap.xml` and `manifest.json` for SEO + PWA support.
+
+For GitHub Pages, configure `GIT_USER`/`USE_SSH` as usual, or wire a CI workflow that runs the commands above.

@@ -1,0 +1,178 @@
+---
+title: "Achilles Runs • Build Intelligence Hub"
+description: "Dark-first docs for the Achilles observability stack: trace CI signals, enforce rules, and orchestrate agent-aware build insights."
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+import Link from '@docusaurus/Link';
+
+<header className="hero heroAchilles">
+  <div className="container">
+    <p className="eyebrow">Achilles Observability Layer</p>
+    <h1>Achilles Runs</h1>
+    <p className="subtitle">
+      Orchestrate, trace, and enforce every CI + agent signal in one dark-first experience.
+    </p>
+    <div className="cta-row">
+      <Link className="button button--lg button--primary" to="/docs/intro">
+        Explore the Docs
+      </Link>
+      <Link className="button button--lg button--outline" to="https://github.com/achilles-run/achilles">
+        View Source
+      </Link>
+    </div>
+    <div className="pill-row">
+      <span className="achilles-pill">Deep Observability</span>
+      <span className="achilles-pill">CI Artifact Intelligence</span>
+      <span className="achilles-pill">Agent Lifecycle Tracking</span>
+    </div>
+  </div>
+</header>
+
+<main className="homepage">
+  <section className="glass-panel">
+    <h2>Mission</h2>
+    <p>
+      <strong>Achilles Runs</strong> stitches together backend, frontend, and CI/CD telemetry—acting as the canonical
+      enforcement layer for the broader Achilles system. Everything here focuses on deep observability, test artifact
+      intelligence, and agent lifecycle tracking.
+    </p>
+    <ul>
+      <li>Trace every build/test phase across subsystems</li>
+      <li>Aggregate typed CI signals for intelligent downstream tooling</li>
+      <li>Trigger canonical state/model transitions based on deterministic rules</li>
+      <li>Empower future agents with trustworthy build insight streams</li>
+    </ul>
+  </section>
+
+  <section className="card-grid">
+    <article>
+      <h3>CI Artifact Tracing</h3>
+      <p>
+        Dual backend/frontend workflows persist structured JSON (`ci_signals_*`) for each build, ensuring downstream
+        steps inherit precise context.
+      </p>
+    </article>
+    <article>
+      <h3>State & Milestone Management</h3>
+      <p>
+        `update-state.yml` coordinates with `tools/update_state.py` to mutate deterministic `state/*.mdc` models via
+        reproducible rules.
+      </p>
+    </article>
+    <article>
+      <h3>Rule Enforcement</h3>
+      <p>
+        Achilles requirements (see `AGENTS.md`) ensure no raw log mutation, no PM workflows, and strictly typed signal
+        ingestion.
+      </p>
+    </article>
+    <article>
+      <h3>Cursor MCP Ready</h3>
+      <p>
+        Designed for future Cursor MCP integration that ingests, traces, and correlates agent intelligence across
+        developer journeys.
+      </p>
+    </article>
+  </section>
+
+  <section className="glass-panel">
+    <h2>Signal Flow</h2>
+    <ol>
+      <li>Backend and frontend pushes trigger their respective CI stacks.</li>
+      <li>Workflows emit strongly typed JSON artifacts summarizing every phase.</li>
+      <li>Artifacts are versioned for downstream consumers and rule evaluators.</li>
+      <li>`update-state.yml` ingests signals and calls `tools/update_state.py` to enforce deterministic milestones.</li>
+      <li>Rules from `AGENTS.md` gate any state mutation to keep observability honest.</li>
+    </ol>
+  </section>
+
+  <section className="layout-split">
+    <div>
+      <h2>Canonical Rules</h2>
+      <Tabs>
+        <TabItem value="guardrails" label="Guardrails">
+          <ul>
+            <li>No mutation of raw event logs—ever.</li>
+            <li>Only deterministic, observable state transitions.</li>
+            <li>Strict ingestion endpoints; no project management creep.</li>
+            <li>Signals must be typed and traceable across builds.</li>
+          </ul>
+        </TabItem>
+        <TabItem value="agents" label="Agents">
+          <ul>
+            <li>Agent intelligence is for observability and insight—not automation.</li>
+            <li>All integrations must document decision logs inside `AGENTS.md`.</li>
+            <li>MCP transport is limited to ingestion, mapping, and event routing.</li>
+          </ul>
+        </TabItem>
+      </Tabs>
+    </div>
+    <div>
+      <h2>Directory Layout</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Path</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>.github/workflows/backend-ci.yml</td>
+            <td>Backend tests, lint, typing, coverage, signal upload</td>
+          </tr>
+          <tr>
+            <td>.github/workflows/frontend-ci.yml</td>
+            <td>Frontend CI parity with artifact exports</td>
+          </tr>
+          <tr>
+            <td>.github/workflows/update-state.yml</td>
+            <td>Applies signal artifacts to state/milestone models</td>
+          </tr>
+          <tr>
+            <td>state/</td>
+            <td>Backend & frontend state tracking (mdc)</td>
+          </tr>
+          <tr>
+            <td>tools/update_state.py</td>
+            <td>Deterministic state transitions per canonical rules</td>
+          </tr>
+          <tr>
+            <td>AGENTS.md</td>
+            <td>Rulebook + decision log for allowed/forbidden changes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section className="glass-panel">
+    <h2>In Development</h2>
+    <Admonition type="tip" title="Cursor MCP">
+      Cursor MCP server integration is in-flight. Expect ingestion + tracing endpoints first, followed by richer agent
+      correlation features.
+    </Admonition>
+    <p>
+      The entire pipeline is optimized for <em>maximum observability</em> and <em>traceable, rule-driven CI intelligence</em>. PRs must never
+      expand into PM tooling or mutate core event/state logic beyond canonical requirements.
+    </p>
+  </section>
+
+  <section className="cta-footer glass-panel">
+    <h2>Ready to dive deeper?</h2>
+    <p>Head into the docs intro or browse the blog for implementation walk-throughs.</p>
+    <div className="cta-row">
+      <Link className="button button--lg button--primary" to="/docs/intro">
+        Start Building
+      </Link>
+      <Link className="button button--lg button--secondary" to="/blog">
+        Read Updates
+      </Link>
+    </div>
+  </section>
+</main>
+
+

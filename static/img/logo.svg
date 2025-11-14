@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Achilles Runs">
+  <defs>
+    <linearGradient id="achillesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6CF1FF"/>
+      <stop offset="100%" stop-color="#3743FF"/>
+    </linearGradient>
+    <linearGradient id="achillesGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="100" cy="100" r="88" fill="#05070C"/>
+    <circle cx="100" cy="100" r="80" fill="url(#achillesGradient)"/>
+    <ellipse cx="100" cy="74" rx="60" ry="38" fill="url(#achillesGlow)" opacity="0.35"/>
+    <path
+      d="M100 46c-2.4 0-4.6 1.28-5.8 3.36L53 122.5c-2.2 3.84.56 8.64 5 8.64h21.26a6.5 6.5 0 0 0 5.79-3.48l14.95-28.35 14.95 28.35a6.5 6.5 0 0 0 5.79 3.48H142c4.45 0 7.2-4.8 5-8.64l-41.2-73.14A6.7 6.7 0 0 0 100 46Z"
+      fill="#05070C"
+      opacity="0.9"
+    />
+    <path
+      d="M100 67.5l27.3 48.57H124.5L100 84.2 75.52 116.07H72.68L100 67.5Z"
+      fill="#6CF1FF"
+    />
+    <circle cx="100" cy="142" r="18" fill="#05070C" opacity="0.5"/>
+    <circle cx="100" cy="142" r="12" fill="#6CF1FF"/>
+  </g>
+</svg>

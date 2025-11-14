@@ -1,0 +1,22 @@
+{
+  "name": "Achilles Runs Docs",
+  "short_name": "Achilles Docs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070c",
+  "theme_color": "#05070c",
+  "description": "Dark-first documentation for Achilles observability, CI tracing, and rule enforcement.",
+  "icons": [
+    {
+      "src": "/img/docusaurus.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/docusaurus.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
