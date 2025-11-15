@@ -151,15 +151,6 @@ const config: Config = {
         ],
       },
     ],
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'daily',
-        priority: 0.8,
-        filename: 'sitemap.xml',
-        ignorePatterns: ['/tags/**'],
-      },
-    ],
   ],
 
   themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
